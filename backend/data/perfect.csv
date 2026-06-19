@@ -1,0 +1,11 @@
+order_id,transaction_date,customer_name,phone_number,country,amount,currency,payment_mode
+ORD-00001,2023-10-01,Alice,+1-202-555-0101,USA,150.0,USD,Credit Card
+ORD-00002,2023-10-02,Bob,+44-1632-960000,UK,200.5,GBP,PayPal
+ORD-00003,2023-10-03,Charlie,+65-6123-4567,Singapore,30.0,SGD,Bank Transfer
+ORD-00004,2023-10-04,David,+91-9876543210,India,450.75,INR,Credit Card
+ORD-00005,2023-10-05,Eve,+1-202-555-0105,USA,10.0,USD,Debit Card
+ORD-00006,2023-10-06,Frank,+44-1632-960006,UK,99.99,GBP,PayPal
+ORD-00007,2023-10-07,Grace,+65-6123-4568,Singapore,1050.0,SGD,Bank Transfer
+ORD-00008,2023-10-08,Heidi,+91-9876543211,India,15.5,INR,Credit Card
+ORD-00009,2023-10-09,Ivan,+1-202-555-0109,USA,42.0,USD,PayPal
+ORD-00010,2023-10-10,Judy,+44-1632-960010,UK,89.0,GBP,Debit Card
