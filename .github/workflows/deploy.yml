@@ -23,6 +23,7 @@ jobs:
 
             echo "Pulling code..."
             git pull --autostash
+
            
 
             echo "Building containers..."
