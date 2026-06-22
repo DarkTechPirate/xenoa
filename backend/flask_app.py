@@ -68,28 +68,28 @@ def upload_file():
         
     if is_chunking_enabled and len(df) > threshold:
         # Create chunks
-            chunks = []
-            for i in range(0, len(df), chunk_size):
-                chunk_df = df.iloc[i:i + chunk_size]
-                chunk_buffer = io.StringIO()
-                chunk_df.to_csv(chunk_buffer, index=False)
-                
-                chunks.append({
-                    "chunk_index": i // chunk_size + 1,
-                    "row_count": len(chunk_df),
-                    "size_bytes": len(chunk_buffer.getvalue().encode('utf-8'))
-                })
-                
-            return jsonify({
-                "is_chunked": True,
-                "original_file": file.filename,
-                "total_records": len(df),
-                "chunk_count": len(chunks),
-                "chunk_size": chunk_size,
-                "chunks": chunks,
-                "server_stressed": server_stressed,
-                "message": "Server load is high. Auto-chunking engaged." if server_stressed else f"File exceeded {threshold} rows and was split into {len(chunks)} chunks."
+        chunks = []
+        for i in range(0, len(df), chunk_size):
+            chunk_df = df.iloc[i:i + chunk_size]
+            chunk_buffer = io.StringIO()
+            chunk_df.to_csv(chunk_buffer, index=False)
+
+            chunks.append({
+                "chunk_index": i // chunk_size + 1,
+                "row_count": len(chunk_df),
+                "size_bytes": len(chunk_buffer.getvalue().encode('utf-8'))
             })
+
+        return jsonify({
+            "is_chunked": True,
+            "original_file": file.filename,
+            "total_records": len(df),
+            "chunk_count": len(chunks),
+            "chunk_size": chunk_size,
+            "chunks": chunks,
+            "server_stressed": server_stressed,
+            "message": "Server load is high. Auto-chunking engaged." if server_stressed else f"File exceeded {threshold} rows and was split into {len(chunks)} chunks."
+        })
     
     validator = DatasetValidator(df, config)
     result = validator.validate()

@@ -96,7 +96,7 @@ export default function DashboardPage({ data, file, config, onReset }: Dashboard
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         <div className="lg:col-span-2 space-y-10">
           <section id="errors">
-            <ErrorExplorer errors={data.errors} />
+            <ErrorExplorer errors={data.errors} corrections={data.corrections} />
           </section>
           
           <section id="corrections">
@@ -104,7 +104,7 @@ export default function DashboardPage({ data, file, config, onReset }: Dashboard
           </section>
         </div>
         <div className="space-y-10">
-          <AIInsights insights={data.insights} qualityScore={data.health.quality_score} />
+          <AIInsights insights={data.insights} qualityScore={data.health.quality_score} errors={data.errors} />
         </div>
       </div>
     </div>
