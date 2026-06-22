@@ -172,6 +172,8 @@ def export_dataset():
     mappings = {v: k for k, v in config.get('mappings', {}).items() if v}
     if mappings:
         df = df.rename(columns=mappings)
+        # Deduplicate columns to prevent ambiguous Series errors
+        df = df.loc[:, ~df.columns.duplicated()]
         
     for correction in corrections:
         row_idx = correction.get('row_index')

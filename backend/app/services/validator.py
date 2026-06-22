@@ -12,6 +12,8 @@ class DatasetValidator:
         mappings = {v: k for k, v in self.config.get('mappings', {}).items() if v}
         if mappings:
             df = df.rename(columns=mappings)
+            # Deduplicate columns to prevent ambiguous Series errors
+            df = df.loc[:, ~df.columns.duplicated()]
             
         self.df = df.replace({float('nan'): None, np.nan: None})
         self.total_rows = len(df)
