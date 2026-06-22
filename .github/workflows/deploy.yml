@@ -24,8 +24,6 @@ jobs:
             echo "Pulling code..."
             git pull --autostash
 
-           
-
             echo "Building containers..."
             docker compose down
             docker compose build --no-cache
