@@ -63,7 +63,7 @@ export function DatasetHealthAnalyzer({ health, schema }: { health: any, schema:
         </CardHeader>
         <CardContent>
           <div className="flex flex-wrap gap-2 mb-4">
-            {health.countries_detected.map((country: str) => (
+            {health.countries_detected.map((country: string) => (
               <span key={country} className="px-2 py-1 bg-indigo-50 text-indigo-700 text-xs font-medium rounded border border-indigo-100">
                 {country}
               </span>
