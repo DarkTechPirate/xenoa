@@ -21,7 +21,9 @@ export default function DashboardPage({ data, file, config, onReset }: Dashboard
   const [exporting, setExporting] = useState(false);
   const [anonymize, setAnonymize] = useState(false);
 
-  const hasPII = data.analytics?.pii_columns && data.analytics.pii_columns.length > 0;
+  if (!data) return null;
+
+  const hasPII = data?.analytics?.pii_columns && data.analytics.pii_columns.length > 0;
 
   const handleExport = async () => {
     setExporting(true);
@@ -48,7 +50,6 @@ export default function DashboardPage({ data, file, config, onReset }: Dashboard
     }
     setExporting(false);
   };
-  if (!data) return null;
 
   return (
     <div className="max-w-6xl mx-auto space-y-10 pb-20">
