@@ -19,6 +19,7 @@ jobs:
           script: |
             set -e
 
+
             cd /home/ops/xenoa/
 
             echo "Pulling code..."
